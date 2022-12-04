@@ -1,5 +1,5 @@
 import string
-
+import time
 def main():
     num = 1
     char_map = {}
@@ -36,4 +36,6 @@ def main():
         total += char_map[matching_char[0]]
     print('Total sum of part 2: ', total)
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    print("--- %s seconds ---" % (time.time() - start_time))
