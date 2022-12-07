@@ -65,7 +65,7 @@ class Node():
     def print_tree(self, level=0):
         dash = ''
         next_level = level + 1
-        dash = dash.join([dash.join(['-']) for i in range(level)])
+        dash = '+' + dash.join([dash.join(['\t']) for i in range(level)])
         star = '*' if self.get_size() < 100000 else ''
         print('{} {} (dir, size={} {})\n'.format(dash, self.get_name(), str(self.get_size()), star))
         for child in self.child.values():
@@ -106,7 +106,9 @@ def main():
     used_space = curr_node.get_size()
     unused_space = 70000000 - used_space
     min_size = curr_node.find_small_dir(unused_space)
-    print(min_size)
+    print('Part 2: ', min_size)
+
+    #curr_node.print_tree()
 
 if __name__ == "__main__":
     start_time = time.time()
